@@ -9,7 +9,7 @@ public class Escola implements Autenticar {
 
     private int novoAluno = 0;
     private double qtdNotas;
-    private List<Double> notas = new ArrayList<>();
+    private List<Double> notas = new ArrayList();
     private List<Aluno> listaAlunos = new ArrayList<>();
     private Aluno aluno;
     private boolean loginErrado = true;
