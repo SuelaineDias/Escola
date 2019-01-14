@@ -1,16 +1,18 @@
 package escola;
 
+import javax.swing.JOptionPane;
+
 public class Pais extends Pessoa {
 
-    private String filiacao1;
-    private String filiacao2;
+    private String cpf;
 
-    public Pais(String nome) {
+    public Pais(String nome, String cpf) {
         super(nome);
+        this.cpf = cpf;
     }
 
     @Override
     public void imprimirCartaoAniversario() {
-        System.out.println("Caros pais, feliz aniversario!");
+        JOptionPane.showMessageDialog(null, "Parabens pai/mae " + this.getNome());
     }
 }

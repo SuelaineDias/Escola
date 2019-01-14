@@ -1,13 +1,16 @@
 package escola;
 
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public final class Aluno extends Pessoa {
 
     private String matricula;
     private double Medias;
+    private double qtdNotas;
     private String Escolaridades;
-    private Pais pais = new Pais("nome");
+    private Pais pai;
+    private Pais mae;
 
     public Aluno(String nome) {
         super(nome);
@@ -29,17 +32,45 @@ public final class Aluno extends Pessoa {
         this.Escolaridades = Escolaridades;
     }
 
+    public Pais getPai() {
+        return pai;
+    }
+
+    public void setPai(Pais pai) {
+        this.pai = pai;
+    }
+
+    public Pais getMae() {
+        return mae;
+    }
+
+    public void setMae(Pais mae) {
+        this.mae = mae;
+    }
+
+    public double getQtdNotas() {
+        return qtdNotas;
+    }
+
+    public void setQtdNotas(double qtdNotas) {
+        this.qtdNotas = qtdNotas;
+    }
+
     @Override
     public void imprimirCartaoAniversario() {
-        System.out.println("Caro aluno Feliz aniversario!");
+        JOptionPane.showMessageDialog(null, "Parabens aluno " + this.getNome());
     }
 
-    private void calculaMedia(double nota1, double nota2) {
-
+    public double calculaMedia(double nota1, double nota2) {
+        return (nota1 + nota2) / qtdNotas;
     }
 
-    private void calculaMedia(List<Double> notas) {
+    public double calculaMedia(List<Double> notas) {
+        double valorAcumulado = 0;
+        for (double n : notas) {
+            valorAcumulado = valorAcumulado + n;
+        }
 
+        return valorAcumulado / qtdNotas;
     }
-
 }

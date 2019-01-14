@@ -9,7 +9,7 @@ public class Escola implements Autenticar {
 
     private int novoAluno = 0;
     private double qtdNotas;
-    private List<Double> notas = new ArrayList();
+    private List<Double> notas = new ArrayList<>();
     private List<Aluno> listaAlunos = new ArrayList<>();
     private Aluno aluno;
     private boolean loginErrado = true;
@@ -56,18 +56,20 @@ public class Escola implements Autenticar {
             int trabalhoNoturno = JOptionPane.showOptionDialog(null, "Voce trabalha a noite?", "Trabalho noturno",
                     JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, options, options[0]);
 
+            aluno.setQtdNotas(qtdNotas);
+            
             if (qtdNotas == 1) {
-                media = calculaMedia(notas.get(0), 0);
+                media = aluno.calculaMedia(notas.get(0), 0);
                 aluno.setMedias(media);
             }
 
             if (qtdNotas == 2) {
-                media = calculaMedia(notas.get(0), notas.get(1));
+                media = aluno.calculaMedia(notas.get(0), notas.get(1));
                 aluno.setMedias(media);
             }
 
             if (qtdNotas > 2) {
-                media = calculaMedia(notas);
+                media = aluno.calculaMedia(notas);
                 aluno.setMedias(media);
             }
 
@@ -99,10 +101,6 @@ public class Escola implements Autenticar {
         }
 
     }
-    
-    public void digitarDadosdoAluno(){
-        
-    }
 
     public void exibirRelatorio() {
         for (Aluno a : listaAlunos) {
@@ -113,19 +111,6 @@ public class Escola implements Autenticar {
             JOptionPane.showMessageDialog(null, msg, "Aluno " + a.getNome(), JOptionPane.PLAIN_MESSAGE);
         }
 
-    }
-
-    private double calculaMedia(double nota1, double nota2) {
-        return (nota1 + nota2) / qtdNotas;
-    }
-
-    private double calculaMedia(List<Double> notas) {
-        double valorAcumulado = 0;
-        for (double n : notas) {
-            valorAcumulado = valorAcumulado + n;
-        }
-
-        return valorAcumulado / qtdNotas;
     }
 
     @Override

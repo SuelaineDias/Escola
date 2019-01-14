@@ -1,5 +1,7 @@
 package escola;
 
+import javax.swing.JOptionPane;
+
 public abstract class Funcionario extends Pessoa {
 
     public Funcionario(String nome) {
@@ -10,12 +12,12 @@ public abstract class Funcionario extends Pessoa {
     private double salario;
 
     public void reajustarSalario(double perc) {
-
+    this.salario += salario * perc;
     }
 
     @Override
     public void imprimirCartaoAniversario() {
-        System.out.println("Caro funcionario, feliz aniversario!");
+        JOptionPane.showMessageDialog(null, "Parabens funcionario " + this.getNome());
     }
 
     public int getPid() {

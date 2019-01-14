@@ -2,22 +2,27 @@ package escola;
 
 public class Porteiro extends Funcionario {
 
-    public enum turno {
-        NOTURNO, DIURNO
+    public enum Turno {
+        NOTURNO, DIURNO     
     }
-
-    public Porteiro(String nome) {
+    
+    private final Turno turno;
+    
+    public Porteiro(String nome, Turno turno) {
         super(nome);
+        this.turno = turno;
     }
 
     @Override
     public void reajustarSalario(double perc) {
-
+        
+    if (this.turno.equals(Turno.NOTURNO)) {
+        setSalario(getSalario() * (perc + 0.1));
     }
-
-    @Override
-    public void imprimirCartaoAniversario() {
-        System.out.println("Caro porteiro, feliz aniversario!");
+    else {
+    super.reajustarSalario(perc);
+    }    
+        
     }
-
 }
+

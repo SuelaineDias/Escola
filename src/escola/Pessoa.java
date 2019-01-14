@@ -8,7 +8,7 @@ public abstract class Pessoa {
     public abstract void imprimirCartaoAniversario();
 
     public final void incrementarIdade(int i) {
-
+    this.idade++;
     }
 
     public Pessoa(String nome) {
